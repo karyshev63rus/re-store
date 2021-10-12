@@ -1,13 +1,15 @@
 import React from 'react'
+import ShopHeader from '../shop-header'
 import BookList from '../book-list'
-import ShoppingCartTable from '../shopping-cart-table'
+import ShopCartTable from '../shop-cart-table'
 
 const HomePage = () => {
     return(
-    <div>
-        <BookList />
-        <ShoppingCartTable />
-    </div>
+        <div>
+            <ShopHeader numItems={2} total={250}/>
+            <BookList />
+            <ShopCartTable />
+        </div>
     )
 }
 

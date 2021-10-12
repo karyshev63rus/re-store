@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
-import ErrorIndicator from '../error-indicator/error-indicator'
+import ErrorIndicator from '../error-indicator'
 
-export default class ErrorBoundry extends Component {
-
-    state = {
-        harError: false
-    }
-
-    componentDidCatch() {
-        this.setState({harError: true})
-    }
+class ErrorBoundry extends Component {
     
-    render() {
-        if (this.state.harError) {
+    state = {
+        hasError: false
+    }
+
+    componentDidCatch(){
+        this.setState(
+            {hasError: true}
+        )
+    }
+
+    render(){
+
+        if (this.state.hasError) {
             return(
                 <div><ErrorIndicator/></div>
-                )
+            )
         }
         return this.props.children
     }
 }
+
+export default ErrorBoundry
